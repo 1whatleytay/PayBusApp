@@ -7,11 +7,16 @@ import {
     Button
 } from 'react-native';
 
+const stylesheet = {
+    flex:1
+}
+
+
 export default class PayBus extends Component {
     constructor(props) {
         super(props)
     }
     render() {
-        return (<Text>Hello</Text>)
+        return (<Text style={{flex: 1, alignItems:"center",justifyContent:"center"}}>Hello</Text>)
         }
     }
