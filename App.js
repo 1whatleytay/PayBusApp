@@ -1,17 +1,28 @@
-import React, { SafeAreaView, Component } from 'react';
-import {
-    Platform,
-    StyleSheet,
-    Text,
-    View,
-    Button
-} from 'react-native';
+import React, { Component } from 'react';
 
-export default class PayBus extends Component {
-    constructor(props) {
-        super(props)
+import {
+    createStackNavigator,
+    createAppContainer
+} from 'react-navigation';
+
+import RouteOption from "./ReactNativeViews/RouteOptions";
+import ProfileScreen from "./ReactNativeViews/ProfileScreen";
+import HomeScreen from "./ReactNativeViews/HomeScreen";
+
+
+
+const RootStack = createStackNavigator({
+    Home: {
+        screen: HomeScreen
+    },
+    Profile:{
+        screen:ProfileScreen
+    },
+    Profile: {
+        screen: RouteOption
     }
-    render() {
-        return (<Text>Hello</Text>)
-        }
-    }
+});
+
+
+const App = createAppContainer(RootStack);
+export default App;
