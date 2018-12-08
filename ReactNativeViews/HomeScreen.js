@@ -2,9 +2,8 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 
-// Beacons Manager
-import Beacons from 'react-native-beacons-manager';
-import { DeviceEventEmitter } from 'react-native';
+// Beacons
+import BeaconListener from '../BeaconListener'
 
 const BalanceStyleSheet = StyleSheet.create({
     button:{
@@ -43,17 +42,10 @@ class BalanceSheet extends Component {
     }
 }
 
-const regions = [
-    {
-        identifier: "Raspberry Pi",
-        uuid: "0D5C6FAD-6425-40E9-A106-228BAC3CB732"
-    }
-];
-
 const HomeScreenStyle = StyleSheet.create({
-  button:{
+    button:{
 
-  }
+    }
 });
 
 class HomeScreen extends Component {
@@ -62,25 +54,9 @@ class HomeScreen extends Component {
     };
 
     constructor(props) {
-      super(props)
+        super(props)
 
-      Beacons.requestAlwaysAuthorization()
-      Beacons.getAuthorizationStatus()
-
-      for (var region in regions) {
-        Beacons.startMonitoringForRegion(region)
-        Beacons.startRangingBeaconsInRegion(region)
-      }
-
-      Beacons.startUpdatingLocation()
-
-      this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
-        for (var region in regions) {
-          if (region.uuid === data.region.uuid) {
-            alert("Detected Device: " + region.uuid)
-          }
-        }
-      })
+        this.listener = new BeaconListener()
     }
 
     render() {
@@ -88,11 +64,11 @@ class HomeScreen extends Component {
 
         return (
             <View>
-            <BalanceSheet></BalanceSheet>
-            <View style={BalanceStyleSheet.Navigator}>
-                <Button title="Go to saved routes" onPress={() => navigate('Profile', {name:"jen"})}></Button>
-                <Button title="Goto " onPress={() => navigate('Profile', {name:"jen"})}></Button>
-            </View>
+                <BalanceSheet></BalanceSheet>
+                <View style={BalanceStyleSheet.Navigator}>
+                    <Button title="Go to saved routes" onPress={() => navigate('Profile', {name:"jen"})}></Button>
+                    <Button title="Goto " onPress={() => navigate('Profile', {name:"jen"})}></Button>
+                </View>
             </View>
         )
     }
