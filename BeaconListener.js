@@ -9,7 +9,7 @@ const regions = [
     }
 ];
 
-class BeaconListener {
+export default class BeaconListener {
     constructor() {
         console.log("Creating BeaconListener...")
 
@@ -24,11 +24,13 @@ class BeaconListener {
         Beacons.startUpdatingLocation()
 
         this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
-            for (var region in regions) {
-                if (region.uuid === data.region.uuid) {
-                    alert("Detected Device: " + region.uuid)
-                }
-            }
+            // if (data.beacons[0].proximity === 'immediate') {
+            //     axios.post('https://api.alliboard.com/nearby', {
+            //         headers: {
+            //             authorization: `Bearer ${}`
+            //         }
+            //     })
+            // }
         })
     }
 }

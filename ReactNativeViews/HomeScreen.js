@@ -30,8 +30,6 @@ class CircleBalanceView extends Component {
 class BalanceSheet extends Component {
     constructor(props){
         super(props)
-
-        Beacons.request
     }
     render(){
         return(
