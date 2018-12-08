@@ -9,6 +9,11 @@ const regions = [
     }
 ];
 
+const stylesheet = {
+    flex:1
+}
+
+
 export default class PayBus extends Component {
     constructor(props) {
         super(props);
@@ -34,4 +39,5 @@ export default class PayBus extends Component {
             </SafeAreaView>
         )
     }
+}
 }
