@@ -1,12 +1,17 @@
 import React, { SafeAreaView, Component } from 'react';
-import { Text } from 'react-native';
+import {
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+    Button
+} from 'react-native';
 
-export default class PayBusApp extends Component {
-    render() {
-        return (
-            <SafeAreaView>
-                <Text>Hello World!</Text>
-            </SafeAreaView>
-        )
+export default class PayBus extends Component {
+    constructor(props) {
+        super(props)
     }
-}
+    render() {
+        return (<Text>Hello</Text>)
+        }
+    }
