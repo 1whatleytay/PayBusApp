@@ -21,6 +21,7 @@ const BalanceStyleSheet = StyleSheet.create({
     }
 });
 
+
 class CircleBalanceView extends Component {
     constructor(props){super(props)}
     render(){
@@ -49,32 +50,39 @@ const regions = [
     }
 ];
 
+const HomeScreenStyle = StyleSheet.create({
+  button:{
+
+  }
+});
+
 class HomeScreen extends Component {
     static navigationOptions = {
         title: 'Welcome',
     };
 
     constructor(props) {
-        super(props)
+      super(props)
 
-        Beacons.requestAlwaysAuthorization()
-        Beacons.getAuthorizationStatus()
+      Beacons.requestAlwaysAuthorization()
+      Beacons.getAuthorizationStatus()
 
+      for (var region in regions) {
+        Beacons.startMonitoringForRegion(region)
+        Beacons.startRangingBeaconsInRegion(region)
+      }
+
+      Beacons.startUpdatingLocation()
+
+      this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
         for (var region in regions) {
-            Beacons.startMonitoringForRegion(region)
-            Beacons.startRangingBeaconsInRegion(region)
+          if (region.uuid === data.region.uuid) {
+            alert("Detected Device: " + region.uuid)
+          }
         }
-
-        Beacons.startUpdatingLocation()
-
-        this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
-            for (var region in regions) {
-                if (region.uuid === data.region.uuid) {
-                    alert("Detected Device: " + region.uuid)
-                }
-            }
-        })
+      })
     }
+
     render() {
         const { navigate } = this.props.navigation;
 
