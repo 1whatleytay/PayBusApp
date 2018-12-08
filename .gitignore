@@ -22,6 +22,7 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 project.pbxproj
+ios/PayBusApp.xcodeproj/project.pbxproj
 
 # Android/IntelliJ
 #
