@@ -14,14 +14,15 @@ const balanceStyle = StyleSheet.create({
     },
     wrapper: {
         marginTop: 50,
+        display:"flex",
         padding: 15,
         height:100,
-        display:"flex",
         alignSelf: "center",
+        justifyContent:"center",
         backgroundColor: "#353B38",
         borderRadius: 100
     }, text: {
-        fontSize: 50,
+        fontSize: 30,
         color:"white",
     },
 });
