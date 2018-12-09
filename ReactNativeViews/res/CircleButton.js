@@ -1,17 +1,18 @@
 import React from "react";
 import {TouchableOpacity, StyleSheet, Text} from "react-native"
-
+let diameter = 100;
 const styles = StyleSheet.create({
   button:{
+    margin:12,
     display:"flex",
-    height: 150,
-    width:this.height,
-    backgroundColor: "#222",
     justifyContent:"center",
     alignItems:"center",
-    margin:12,
-    borderRadius: 100
-
+    height: diameter,
+    width: diameter,
+    backgroundColor: "#222",
+    borderRadius: 100,
+    borderColor:"red",
+    borderWidth:1
   },
   buttonText:{
     color: "white",

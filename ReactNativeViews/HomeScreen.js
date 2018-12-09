@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, Button } from "react-native";
 
 // Custom elements
 import BetterButton from "./res/BetterButton"
+import PersonalData from "./res/PersonalData"
 
 // Beacons
 import BeaconListener from '../BeaconListener'
@@ -21,8 +22,8 @@ const balanceStyle = StyleSheet.create({
         justifyContent:"center",
         backgroundColor: "#353B38",
         borderRadius: 100
-    }, text: {
-        fontSize: 30,
+    }, balanceText: {
+        fontSize: 20,
         color:"white",
     },
 });
@@ -32,7 +33,7 @@ class BalanceSheet extends Component {
         const formattedBalance = '$' + (Number(this.props.balance) / 100).toFixed(2)
         return(
             <View style={ balanceStyle.wrapper }>
-                <Text style={ balanceStyle.text }>{formattedBalance}</Text>
+                <Text style={ balanceStyle.balanceText }>{formattedBalance}</Text>
             </View>
         );
     }
@@ -45,8 +46,8 @@ class HomeScreen extends Component {
 
     constructor(props) {
         super(props)
-        
-        this.listener = new BeaconListener()
+
+        // this.listener = new BeaconListener()
     }
 
     render() {
@@ -54,7 +55,10 @@ class HomeScreen extends Component {
 
         return (
             <View style={{flex:1}}>
-                <View style={{flex:1}}>
+                <View style={{flexDirection:"row"}}>
+                    <PersonalData name="Taylor Whatley" balance="0"></PersonalData>
+                </View>
+                <View style={{flex:2}}>
                     <BalanceSheet balance="9000145"/>
                 </View>
                 <View style={ balanceStyle.Navigator}>
