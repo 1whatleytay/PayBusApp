@@ -49,10 +49,12 @@ export default class LoginScreen extends Component {
             password,
             scope: ''
         }).then(response => {
+
             AsyncStorage.setItem('token', response.data.access_token).then(
                 () => {
                     this.props.navigation.navigate('Home', {token: response.data.access_token || 'foooo'})
                 }).catch(e => {
+
                     console.error("erroring");
                 })
         }).catch(() => {

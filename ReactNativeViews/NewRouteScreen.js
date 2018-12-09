@@ -6,7 +6,7 @@ export default class NewRouteScreen extends Component {
         console.log(this.props.navigation.state)
         return (
             <View>
-                <Text>Route Id: { 1 }</Text>
+                <Text>Route Id: { this.props.routeId }</Text>
             </View>
         )
     }

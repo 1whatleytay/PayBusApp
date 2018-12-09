@@ -9,7 +9,7 @@ export default class EntryScreen extends Component {
 
         this.state = {}
 
-        AsyncStorage.removeItem("token");
+        // AsyncStorage.removeItem("token");
     }
     
     componentDidMount() {

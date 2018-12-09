@@ -3,7 +3,7 @@ import { AsyncStorage, StyleSheet, Button, Text, FlatList } from "react-native"
 import {} from "react-navigation"
 
 import { TextButton } from "react-native-material-buttons"
-
+let id = 0;
 const routeStyle = StyleSheet.create({
     fullFlex: {
         flex: 1,
@@ -18,19 +18,18 @@ const routeStyle = StyleSheet.create({
 })
 
 class RouteListItem extends Component {
-    onPress() {
-        this.props.navigation.navigate("NewRoute", { routeId: this.props.routeId })
+    onPress(nav, id) {
+        // alert(JSON.stringify(this.props.props, "", " "));
+        nav("NewRoute", { routeId: id })
     }
 
     constructor(props) {
         super(props)
-
-        
     }
 
     render() {
         return (
-            <TextButton title={this.props.name} style={routeStyle.breifRoute} onPress={this.onPress}>{this.props.name}</TextButton>
+            <TextButton title={this.props.name} style={routeStyle.breifRoute} onPress={this.onPress(this.props.navigation.navigate, this.props.id)}>{this.props.name}</TextButton>
         )
     }
 }
@@ -70,11 +69,12 @@ export default class RouteScreen extends Component {
     render() {
         return (
             <FlatList data={this.routes}
-                renderItem={({item}) => ( <RouteListItem name={item.name} routeId={item.routeId}></RouteListItem> )}/>
+                renderItem={({item}) => {
+                    // console.warn(this.props);
+                    return (
+                    <RouteListItem name={item.name} routeId={item.id}></RouteListItem>
+                )}}/>
         );
     }
 
-    ggg(event) {
-        this.props.navigation.navigate("NewRoute", { routeId: this.props.routeId })
-    }
 }
