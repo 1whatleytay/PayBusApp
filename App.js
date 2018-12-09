@@ -8,13 +8,14 @@ import HomeScreen from "./ReactNativeViews/HomeScreen"
 import LoginScreen from "./ReactNativeViews/LoginScreen"
 
 function isLoggedIn() {
-    return false;
-    //return AsyncStorage.getItem("loggedIn") === "true";
+    return true;
+    // return AsyncStorage.getItem("loggedIn");
 }
 
+console.disableYellowBox = true;
 const RootStack = createStackNavigator({
     Home: {
-        screen: isLoggedIn() ? HomeScreen : LoginScreen
+        screen: isLoggedIn ? HomeScreen : LoginScreen
     },
     Profile:{
         screen:ProfileScreen

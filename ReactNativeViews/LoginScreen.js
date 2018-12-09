@@ -7,7 +7,8 @@ export default class LoginScreen extends Component {
     };
 
     constructor(props) {
-        super(props)
+        super(props);
+        alert(`X: ${x}`)
     }
 
     render() {
