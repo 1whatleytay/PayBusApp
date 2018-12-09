@@ -11,7 +11,7 @@ import PersonalData from "./res/PersonalData"
 import BeaconListener from '../BeaconListener'
 
 // Render svg image
-// import svgURI from 'react-native-svg-uri';
+import svgURI from 'react-native-svg-uri';
 
 const balanceStyle = StyleSheet.create({
     Navigator:{
