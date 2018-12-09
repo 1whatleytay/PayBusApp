@@ -4,12 +4,8 @@ import { View, Text } from 'react-native'
 import { RaisedTextButton } from 'react-native-material-buttons'
 
 export default class AskBus extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     checkRoutes() {
-        console.log("Checking for route: " + this.props.navigation.state.uuid)
+        console.log("Checking for route: " + this.props.navigation.state["params"]["uuid"])
     }
 
     render() {

@@ -16,7 +16,7 @@ export default class BeaconListener {
         this.token = token
         this.navigation = navigation
 
-        this.lastStamp = { uuid: '', time: new Date() }
+        this.lastStamp = { uuid: 'no-uuid', time: new Date() }
 
         console.log('Creating BeaconListener...')
 
@@ -35,15 +35,14 @@ export default class BeaconListener {
             console.log('Detected bus: ' + data.region.uuid + " region: " + data.beacons[0].proximity)
 
             if (data.beacons[0].proximity === 'immediate' && this.token) {
-                if (this.lastStamp.time.getTime() + 1000 * 60 * 5 < new Date().getTime()
+                if (((this.lastStamp.time.getTime() + 1000 * 60 * 5) < new Date().getTime())
                     || this.lastStamp.uuid !== data.region.uuid) {
                         axios.post('https://api.alliboard.com/nearby/', { uuid: data.region.uuid },
                             { headers: { authorization: 'Bearer ' + this.token }})
-                            .then((response) => {
-                                console.log("Is switching...")
-                                this.lastStamp.uuid = response.config.uuid
+                            .then(() => {
+                                this.lastStamp.uuid = data.region.uuid
                                 this.lastStamp.time = new Date()
-                                this.navigation.navigate("AskBus", { uuid: response.config.uuid })
+                                this.navigation.navigate("AskBus", { uuid: data.region.uuid })
                             }).catch(err => { console.log(err.message) })
                 }
             }
