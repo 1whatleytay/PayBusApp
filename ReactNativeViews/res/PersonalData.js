@@ -14,9 +14,10 @@ export default class PersonalData extends Component {
             }
         })
     }
+
     render(){
       return (
-          <View style={{ flexDirection:"row", shadowColor:"red", shadowRadius:2 }}>
+          <View style={{ flexDirection:"row" ,shadowColor:"black",shadowOpacity:1.0,shadowOffset:{width:10, height:10} }}>
               <CircleButton title=""></CircleButton>
               <View style={{flexDirection:"column", justifyContent:"space-around"}}>
                   <Text style={this.style.text}>{this.props.name}</Text>
