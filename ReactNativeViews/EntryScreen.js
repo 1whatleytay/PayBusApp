@@ -1,7 +1,5 @@
 import { Component } from 'react'
 import { AsyncStorage } from 'react-native'
-import HomeScreen from './HomeScreen';
-import LoginScreen from './LoginScreen';
 
 export default class EntryScreen extends Component {
     constructor(props) {

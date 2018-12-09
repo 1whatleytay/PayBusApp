@@ -29,7 +29,7 @@ export default class LoginScreen extends Component {
             <View>
                 <TextField label="Email" keyboardType="email-address"
                     onChangeText={username => this.setState({username})}></TextField>
-                <TextField label="Password" secureTextEntry="true"
+                <TextField label="Password" secureTextEntry={true}
                     onChangeText={password => this.setState({password})}></TextField>
                 <Button title="Login" style={{ alignSelf: "center" }}
                     onPress={() => this.handleLogin(this.state.username, this.state.password)}>Login</Button>

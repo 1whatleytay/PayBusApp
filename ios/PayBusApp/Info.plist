@@ -37,6 +37,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We always-always use location services to detect when you get on the bus.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We always use location services to detect when you get on the bus.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use location services in app to detect when you get on the bus.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
@@ -56,11 +62,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We always use location services to detect when you get on the bus.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We always-always use location services to detect when you get on the bus.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use location services in app to detect when you get on the bus.</string>
 </dict>
 </plist>

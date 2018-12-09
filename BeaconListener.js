@@ -26,13 +26,11 @@ export default class BeaconListener {
         this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
             console.log('Detected bus: ' + data.region.uuid)
             if (data.beacons.length > 0 &&data.beacons[0].proximity === 'immediate') {
-                console.log("Immediate bus detected: " + data.region.uuid)
-                // axios.post('https://api.alliboard.com/nearby', { uuid: data.beacons[0].uuid },
-                // {
-                //     headers: {
-                //         authorization: 'Bearer ' + await AsyncStorage.getItem('token')
-                //     }
-                // })
+                const uuid = data.beacons[0].uuid
+                const token = async () => await AsyncStorage.getItem('token')
+                axios.post('https://api.alliboard.com/nearby/', { uuid }, {
+                    headers: { authorization: 'Bearer ' + token() }
+                })
             }
         })
     }
