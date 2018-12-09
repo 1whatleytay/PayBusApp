@@ -26,8 +26,8 @@ export default class BeaconListener {
         Beacons.startUpdatingLocation()
 
         this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
-            console.log('Detected bus: ' + data.region.uuid + " proximity: " + data.beacons[0].proximity)
-            if (data.beacons[0] != undefined && data.beacons[0].proximity === 'immediate') {
+            console.log('Detected bus: ' + data.region.uuid)
+            if (data.beacons[0] !== undefined && data.beacons[0].proximity === 'immediate') {
                 const uuid = data.beacons[0].uuid
                 const token = async () => await AsyncStorage.getItem('token')
                 console.log("UUID: " + uuid)

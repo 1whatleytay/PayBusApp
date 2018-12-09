@@ -7,6 +7,7 @@ import RouteScreen from "./ReactNativeViews/RouteScreen"
 import ProfileScreen from "./ReactNativeViews/ProfileScreen"
 import HomeScreen from "./ReactNativeViews/HomeScreen"
 import LoginScreen from "./ReactNativeViews/LoginScreen"
+import NewRouteScreen from "./ReactNativeViews/NewRouteScreen"
 
 console.disableYellowBox = true
 
@@ -20,11 +21,14 @@ const RootStack = createStackNavigator({
     Login: {
         screen: LoginScreen
     },
-    Profile:{
+    Profile: {
         screen: ProfileScreen
     },
-    Profile: {
+    Route: {
         screen: RouteScreen
+    },
+    NewRoute: {
+        screen: NewRouteScreen
     }
 });
 

@@ -65,7 +65,7 @@ class HomeScreen extends Component {
                 </View>
                 <View style={ balanceStyle.Navigator}>
                     <RaisedTextButton style={{height: 100, backgroundColor:"#222", borderRadius:0}} title="Go to saved routes" titleColor="rgb(255,255,255)"
-                        onPress={() => navigate('Profile', {name:"jen"})}></RaisedTextButton>
+                        onPress={() => navigate('Route')}></RaisedTextButton>
                 </View>
             </View>
         )
