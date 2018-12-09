@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import {StyleSheet, Text, View} from "react-native"
+import {StyleSheet, Text, View, AsyncStorage} from "react-native";
+import axios from "axios";
 
 // Custom elements
 import CircleButton from "./CircleButton"
@@ -13,7 +14,28 @@ export default class PersonalData extends Component {
                 fontSize:20
             }
         })
+        this.state = {};
+
+        // alert("Here ya go: " + this.props.token);
+        AsyncStorage.getItem('token').then((res, err) => {
+
+            // alert("Here ya go: " + JSON.stringify(res));
+            return axios.get("https://api.alliboard.com/users/me/profile", {
+                headers: {
+                    authorization: `Bearer ${res}`
+                }
+            }).then(res => {
+                this.setState({
+                    balance: res.data.balance,
+                    name: res.data.name
+                })
+            })
+        }).catch(e => {
+
+            console.error(`Something occured: ${e}`);
+        })
     }
+
 
     render(){
       return (

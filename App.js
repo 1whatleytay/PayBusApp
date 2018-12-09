@@ -14,11 +14,12 @@ const RootStack = createStackNavigator({
     Entry: {
         screen: EntryScreen
     },
-    Home: {
-        screen: HomeScreen
-    },
+
     Login: {
         screen: LoginScreen
+    },
+    Home: {
+        screen: HomeScreen
     },
     Profile:{
         screen: ProfileScreen

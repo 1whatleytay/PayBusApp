@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     width: diameter,
     backgroundColor: "#222",
     borderRadius: 100,
-    borderColor:"red",
+    borderColor:"#222",
     borderWidth:1,
     overflow: "hidden"
   },
