@@ -25,10 +25,13 @@ export default class CircleButton extends React.Component{
   constructor(props){
     super(props)
   }
+
   render(){
-    return (<TouchableOpacity
+    return (
+    <TouchableOpacity
       style={styles.button}>
-      <Image width={diameter} height={diameter} resizeMode="contain" source={require("../../Images/avatar.jpg")}></Image>
-    </TouchableOpacity>);
+      <Image style={{width:diameter*2, height: diameter*2}} resizeMode="contain" source={require("../../Images/avatar.jpg")}></Image>
+    </TouchableOpacity>
+    );
   }
 }
