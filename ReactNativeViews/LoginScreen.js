@@ -24,7 +24,7 @@ export default class LoginScreen extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { username: "", password: "" }
+        this.state = { username: "test", password: "test" }
     }
 
     render() {

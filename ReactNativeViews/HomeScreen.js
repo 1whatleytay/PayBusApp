@@ -11,7 +11,8 @@ import PersonalData from "./res/PersonalData"
 import BeaconListener from '../BeaconListener'
 
 // Render svg image
-// import svgURI from 'react-native-svg-uri';
+import SvgURI from 'react-native-svg-uri';
+import SvgUri from "react-native-svg-uri";
 
 const balanceStyle = StyleSheet.create({
     Navigator:{
@@ -68,7 +69,6 @@ class HomeScreen extends Component {
                 </View>
 
                 <View style={{flex:1}}>
-                    <Image source=""></Image>
                 </View>
                 <View style={ balanceStyle.Navigator}>
                     <RaisedTextButton style={{height: 100, backgroundColor:"#222", borderRadius:0}} title="Go to saved routes" titleColor="rgb(255,255,255)"

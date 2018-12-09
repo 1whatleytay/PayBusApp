@@ -42,7 +42,7 @@ export default class PersonalData extends Component {
               <CircleButton title={this.props.image}></CircleButton>
               <View style={{flexDirection:"column", justifyContent:"space-around"}}>
                   <Text style={this.style.text}>{this.state.name}</Text>
-                  <Text style={this.style.text}>${(this.state.balance / 100).toFixed(2)}</Text>
+                  <Text style={this.style.text}>${parseFloat(this.state.balance)/100}</Text>
               </View>
           </View>)
     }
