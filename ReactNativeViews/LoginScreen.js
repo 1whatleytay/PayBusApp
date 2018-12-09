@@ -23,17 +23,16 @@ export default class LoginScreen extends Component {
 
     constructor(props) {
         super(props)
-
-        this.state = { username: "", password: "" }
+        this.state = { username: "test", password: "test" }
     }
 
     render() {
         return (
             <View style={ loginStyle.pushIn }>
                 <TextField label="Email" keyboardType="email-address"
-                    onChangeText={username => this.setState({username})}></TextField>
+                    onChangeText={username => this.setState({username})} ></TextField>
                 <TextField label="Password" secureTextEntry={true}
-                    onChangeText={password => this.setState({password})}></TextField>
+                    onChangeText={password => this.setState({password})} ></TextField>
                 <RaisedTextButton title="Login" color="#2980b9" style={ loginStyle.button }
                     onPress={() => this.handleLogin(this.state.username, this.state.password)}>
                     Login</RaisedTextButton>
@@ -51,7 +50,13 @@ export default class LoginScreen extends Component {
             scope: ''
         }).then(response => {
             AsyncStorage.setItem('token', response.data.access_token).then(
-                () => this.props.navigation.navigate('Home'))
-        }).catch(() => alert('Failed to login! Please try again...'))
+                () => {
+                    this.props.navigation.navigate('Home', {token: response.data.access_token || 'foooo'})
+                }).catch(e => {
+                    console.error("erroring");
+                })
+        }).catch(() => {
+            alert('Failed to login! Please try again...')
+        })
     }
 }
