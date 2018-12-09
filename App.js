@@ -6,8 +6,9 @@ import NewRouteScreen from "./ReactNativeViews/NewRouteScreen"
 import HomeScreen from "./ReactNativeViews/HomeScreen"
 import LoginScreen from "./ReactNativeViews/LoginScreen"
 import AskBus from "./ReactNativeViews/AskBus"
+import ProofScreen from "./ReactNativeViews/ProofScreen"
 
-// console.disableYellowBox = true
+console.disableYellowBox = true
 
 const RootStack = createStackNavigator({
     Entry: {
@@ -27,6 +28,9 @@ const RootStack = createStackNavigator({
     },
     AskBus: {
         screen: AskBus
+    },
+    Proof: {
+        screen: ProofScreen
     }
 });
 

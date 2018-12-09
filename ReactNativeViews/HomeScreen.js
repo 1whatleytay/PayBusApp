@@ -10,10 +10,6 @@ import PersonalData from "./res/PersonalData"
 // Beacons
 import BeaconListener from '../BeaconListener'
 
-// Render svg image
-import SvgURI from 'react-native-svg-uri';
-import SvgUri from "react-native-svg-uri";
-
 const balanceStyle = StyleSheet.create({
     Navigator:{
         flex:0
