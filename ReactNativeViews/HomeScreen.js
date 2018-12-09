@@ -1,6 +1,6 @@
 // React
 import React, { Component } from "react"
-import { StyleSheet, View, Text, Button } from "react-native"
+import { StyleSheet, View, Text, Button, Platform } from "react-native"
 
 import { RaisedTextButton } from "react-native-material-buttons"
 
@@ -48,7 +48,7 @@ class HomeScreen extends Component {
     constructor(props) {
         super(props)
 
-        this.listener = new BeaconListener()
+        if(Platform.OS != "android") this.listener = new BeaconListener()
     }
 
     render() {
