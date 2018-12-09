@@ -52,7 +52,7 @@ class HomeScreen extends Component {
         super(props)
 
         AsyncStorage.getItem("token").then((result) => {
-            this.listener = new BeaconListener(result)
+            this.listener = new BeaconListener(result, this.props.navigation)
         }).catch(() => {
             this.navigation.replace("Login")
         })

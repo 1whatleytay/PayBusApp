@@ -6,14 +6,17 @@ import axios from 'axios'
 
 const regions = [
     {
-        identifier: 'Raspberry Pi',
-        uuid: '0D5C6FAD-6425-40E9-A106-228BAC3CB732'
+        identifier: 'Tablet',
+        uuid: '3B4E3C81-BD38-4979-AC08-2DA3C96BC6D2'
     }
 ];
 
 export default class BeaconListener {
-    constructor(token) {
+    constructor(token, navigation) {
         this.token = token
+        this.navigation = navigation
+
+        this.lastStamp = { uuid: '', time: new Date() }
 
         console.log('Creating BeaconListener...')
 
@@ -28,18 +31,21 @@ export default class BeaconListener {
         Beacons.startUpdatingLocation()
 
         this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
-            if (data.beacons[0] === undefined) {
-                console.log('Detected bus: ' + data.region.uuid + " no region")
-                return
-            }
-            console.log('Detected bus: ' + data.region.uuid + " range: " + data.beacons[0].proximity + " access: " + this.token)
+            if (data.beacons.length < 1) { return }
+            console.log('Detected bus: ' + data.region.uuid + " region: " + data.beacons[0].proximity)
 
             if (data.beacons[0].proximity === 'immediate' && this.token) {
-                const uuid = data.beacons[0].uuid
-                console.log("Token: " + JSON.stringify(this.token))
-                axios.post('https://api.alliboard.com/nearby/', { uuid }, {
-                    headers: { authorization: 'Bearer ' + this.token }
-                }).catch(err => { console.log(err) })
+                if (this.lastStamp.time.getTime() + 1000 * 60 * 5 < new Date().getTime()
+                    || this.lastStamp.uuid !== data.region.uuid) {
+                        axios.post('https://api.alliboard.com/nearby/', { uuid: data.region.uuid },
+                            { headers: { authorization: 'Bearer ' + this.token }})
+                            .then((response) => {
+                                console.log("Is switching...")
+                                this.lastStamp.uuid = response.config.uuid
+                                this.lastStamp.time = new Date()
+                                this.navigation.navigate("AskBus", { uuid: response.config.uuid })
+                            }).catch(err => { console.log(err.message) })
+                }
             }
         })
     }

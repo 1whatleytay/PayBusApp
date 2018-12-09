@@ -1,5 +1,3 @@
-import AsyncStorage from 'react-native'
-
 import {createStackNavigator, createAppContainer} from 'react-navigation'
 
 import EntryScreen from "./ReactNativeViews/EntryScreen";
@@ -8,6 +6,7 @@ import ProfileScreen from "./ReactNativeViews/ProfileScreen"
 import HomeScreen from "./ReactNativeViews/HomeScreen"
 import LoginScreen from "./ReactNativeViews/LoginScreen"
 import NewRouteScreen from "./ReactNativeViews/NewRouteScreen"
+import AskBus from "./ReactNativeViews/AskBus"
 
 console.disableYellowBox = true
 
@@ -29,6 +28,9 @@ const RootStack = createStackNavigator({
     },
     NewRoute: {
         screen: NewRouteScreen
+    },
+    AskBus: {
+        screen: AskBus
     }
 });
 
