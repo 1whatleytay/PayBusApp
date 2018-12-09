@@ -26,14 +26,12 @@ function renderText(length){
 
 class RouteListItem extends Component {
     onPress(id) {
-      // alert(id);
-      console.warn(id);
-      navigate.navigate("NewRoute", this.obj);
+      navigate.navigate("NewRoute", {routeId: id});
     }
 
     constructor(_props) {
         super(_props)
-        // console.warn(_props.routeId)
+
         this.id = _props.routeId;
         this.obj = _props.obj;
     }
@@ -46,6 +44,10 @@ class RouteListItem extends Component {
 }
 
 export default class RouteScreen extends Component {
+    static navigationOptions = {
+        title: 'Select a Route...',
+    };
+
     constructor(props) {
         super(props)
         if(!navigate) navigate = this.props.navigation;
@@ -67,7 +69,7 @@ export default class RouteScreen extends Component {
                     <RouteListItem obj={item}></RouteListItem>
                 )}}/>
 
-                </View>
+            </View>
         );
     }
 
