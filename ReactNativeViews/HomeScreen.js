@@ -5,55 +5,51 @@ import { StyleSheet, View, Text, Button } from "react-native";
 // Beacons
 import BeaconListener from '../BeaconListener'
 
-const BalanceStyleSheet = StyleSheet.create({
-    button:{
-      
-    },
-    Circle:{
-        backgroundColor: "red",
-        display:"flex",
-        width: 100,
-        height: 100,
-    },
+const balanceStyle = StyleSheet.create({
     Navigator:{
         position:"absolute",
+    },
+    text: {
+        fontSize: 50,
+    },
+    wrapper: {
+        marginTop: 50,
+        padding: 15,
+        backgroundColor: "#3498db",
+        alignSelf: "center",
+        borderRadius: 40
     }
 });
 
-
-class CircleBalanceView extends Component {
-    constructor(props){super(props)}
-    render(){
-        return (<View style={BalanceStyleSheet.Circle}><Text>Hello world!</Text></View>);
+class AddFunds extends Component {
+    render() {
+        return (
+            <View>
+                <Text></Text>
+            </View>
+        )
     }
 }
+
 class BalanceSheet extends Component {
-    constructor(props){
-        super(props)
-    }
-    render(){
+    render() {
+        const formattedBalance = '$' + (Number(this.props.balance) / 100).toFixed(2)
         return(
-            <View>
-                <CircleBalanceView></CircleBalanceView>
+            <View style={ balanceStyle.wrapper }>
+                <Text style={ balanceStyle.text }>{formattedBalance}</Text>
             </View>
         );
     }
 }
 
-const HomeScreenStyle = StyleSheet.create({
-    button:{
-
-    }
-});
-
 class HomeScreen extends Component {
     static navigationOptions = {
-        title: 'Welcome',
+        title: 'Alliboard',
     };
 
     constructor(props) {
         super(props)
-
+        
         this.listener = new BeaconListener()
     }
 
@@ -62,10 +58,13 @@ class HomeScreen extends Component {
 
         return (
             <View>
-                <BalanceSheet></BalanceSheet>
-                <View style={BalanceStyleSheet.Navigator}>
+                <BalanceSheet balance="9000145"/>
+                <View style={ balanceStyle.Navigator }>
                     <Button title="Go to saved routes" onPress={() => navigate('Profile', {name:"jen"})}></Button>
                     <Button title="Goto " onPress={() => navigate('Profile', {name:"jen"})}></Button>
+                </View>
+                <View style={{ flex: 1 }}>
+
                 </View>
             </View>
         )
