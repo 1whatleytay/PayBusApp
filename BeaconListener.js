@@ -33,7 +33,7 @@ export default class BeaconListener {
                 console.log("UUID: " + uuid)
                 axios.post('https://api.alliboard.com/nearby/', { uuid }, {
                     headers: { authorization: 'Bearer ' + token() }
-                }).catch(err => alert(err))
+                }).catch(err => { console.log(err) })
             }
         })
     }

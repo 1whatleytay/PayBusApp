@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, AsyncStorage, Button } from 'react-native'
+import { StyleSheet, View, AsyncStorage } from 'react-native'
 
-// import { TextField } from 'react-native-material-textfield'
+import { RaisedTextButton } from 'react-native-material-buttons'
+import { TextField } from 'react-native-material-textfield'
 
 import axios from 'axios'
 
 const loginStyle = StyleSheet.create({
-    header: {
-        fontSize: 25,
-        fontWeight: "bold",
-        textAlign: "center"
+    button: {
+        alignSelf: "center",
+        marginTop: 50
+    },
+    pushIn: {
+        margin: 10
     }
-});
+})
 
 export default class LoginScreen extends Component {
     static navigationOptions = {
@@ -26,13 +29,14 @@ export default class LoginScreen extends Component {
 
     render() {
         return (
-            <View>
+            <View style={ loginStyle.pushIn }>
                 <TextField label="Email" keyboardType="email-address"
                     onChangeText={username => this.setState({username})}></TextField>
-                <TextField label="Password" secureTextEntry="true"
+                <TextField label="Password" secureTextEntry={true}
                     onChangeText={password => this.setState({password})}></TextField>
-                <Button title="Login" style={{ alignSelf: "center" }}
-                    onPress={() => this.handleLogin(this.state.username, this.state.password)}>Login</Button>
+                <RaisedTextButton title="Login" color="#2980b9" style={ loginStyle.button }
+                    onPress={() => this.handleLogin(this.state.username, this.state.password)}>
+                    Login</RaisedTextButton>
             </View>
         )
     }

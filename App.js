@@ -8,6 +8,8 @@ import ProfileScreen from "./ReactNativeViews/ProfileScreen"
 import HomeScreen from "./ReactNativeViews/HomeScreen"
 import LoginScreen from "./ReactNativeViews/LoginScreen"
 
+//console.disableYellowBox = true
+
 const RootStack = createStackNavigator({
     Entry: {
         screen: EntryScreen

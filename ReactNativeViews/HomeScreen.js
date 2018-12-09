@@ -1,9 +1,10 @@
 // React
-import React, { Component } from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import React, { Component } from "react"
+import { StyleSheet, View, Text, Button } from "react-native"
+
+import { RaisedTextButton } from "react-native-material-buttons"
 
 // Custom elements
-import BetterButton from "./res/BetterButton"
 import PersonalData from "./res/PersonalData"
 
 // Beacons
@@ -62,7 +63,8 @@ class HomeScreen extends Component {
                     <BalanceSheet balance="9000145"/>
                 </View>
                 <View style={ balanceStyle.Navigator}>
-                    <BetterButton title="Go to saved routes" onPress={() => navigate('Profile', {name:"jen"})}></BetterButton>
+                    <RaisedTextButton title="Go to saved routes" color="#2980b9"
+                        onPress={() => navigate('Profile', {name:"jen"})}></RaisedTextButton>
                 </View>
             </View>
         )
