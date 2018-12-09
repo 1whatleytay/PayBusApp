@@ -68,7 +68,9 @@ class HomeScreen extends Component {
                     <PersonalData name="Taylor Whatley" balance="0"></PersonalData>
                 </View>
 
-                <View style={{flex:1}}>
+                <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
+                <Image style={{width: 300, height:200}} source={require("../Images/bus.png")}></Image>
+                <View stle={{flex:1, backgroundColor:"red", height: 100, width: 100}}></View>
                 </View>
                 <View style={ balanceStyle.Navigator}>
                     <RaisedTextButton style={{height: 100, backgroundColor:"#222", borderRadius:0}} title="Go to saved routes" titleColor="rgb(255,255,255)"
