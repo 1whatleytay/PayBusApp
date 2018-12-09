@@ -1,6 +1,6 @@
 // Beacons Manager
 import Beacons from 'react-native-beacons-manager'
-import { DeviceEventEmitter } from 'react-native'
+import { AsyncStorage, DeviceEventEmitter } from 'react-native'
 
 import axios from 'axios'
 
@@ -27,7 +27,7 @@ export default class BeaconListener {
 
         this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
             console.log('Detected bus: ' + data.region.uuid + " proximity: " + data.beacons[0].proximity)
-            if (data.beacons[0] && data.beacons[0].proximity === 'immediate') {
+            if (data.beacons[0] != undefined && data.beacons[0].proximity === 'immediate') {
                 const uuid = data.beacons[0].uuid
                 const token = async () => await AsyncStorage.getItem('token')
                 console.log("UUID: " + uuid)

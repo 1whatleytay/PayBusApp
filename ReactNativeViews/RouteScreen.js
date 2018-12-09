@@ -9,32 +9,34 @@ const RouteOptionStyle = StyleSheet.create({
     }
 })
 
-class Scroll extends Component{
+class RouteOption extends Component {
+    render(){
+        return(
+            <View style={RouteOptionStyle.view}>
+                <Text style={RouteOptionStyle.text}>Hello</Text>
+            </View>
+        )
+    }
+}
+
+export default class Scroll extends Component{
     constructor(props){
         super(props)
     }
     render(){
-        return (<ScrollView>
-                <RouteOption></RouteOption>
-                <RouteOption></RouteOption>
+        return (
+            <ScrollView>
+                <RouteOption/>
+                <RouteOption/>
 
-                <RouteOption></RouteOption>
-                <RouteOption></RouteOption>
+                <RouteOption/>
+                <RouteOption/>
 
-                <RouteOption></RouteOption>
-                <RouteOption></RouteOption>
+                <RouteOption/>
+                <RouteOption/>
 
-                <RouteOption></RouteOption>
-                <RouteOption></RouteOption>
+                <RouteOption/>
+                <RouteOption/>
             </ScrollView>)
     }
 }
- class RouteOption extends Component {
-     constructor(props){
-         super(props);
-    }
-     render(){
-         return(<View style={RouteOptionStyle.view}><Text style={RouteOptionStyle.text}>Hello</Text></View>);
-    }
-}
-export default Scroll;

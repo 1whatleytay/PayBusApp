@@ -3,7 +3,7 @@ import AsyncStorage from 'react-native'
 import {createStackNavigator, createAppContainer} from 'react-navigation'
 
 import EntryScreen from "./ReactNativeViews/EntryScreen";
-import RouteOption from "./ReactNativeViews/RouteOptions"
+import RouteScreen from "./ReactNativeViews/RouteScreen"
 import ProfileScreen from "./ReactNativeViews/ProfileScreen"
 import HomeScreen from "./ReactNativeViews/HomeScreen"
 import LoginScreen from "./ReactNativeViews/LoginScreen"
@@ -21,10 +21,10 @@ const RootStack = createStackNavigator({
         screen: LoginScreen
     },
     Profile:{
-        screen:ProfileScreen
+        screen: ProfileScreen
     },
     Profile: {
-        screen: RouteOption
+        screen: RouteScreen
     }
 });
 

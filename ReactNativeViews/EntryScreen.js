@@ -16,8 +16,7 @@ export default class EntryScreen extends Component {
 
             const { navigate } = this.props.navigation
 
-            //this.state.loggedIn ? navigate("Home") : navigate("Login")
-            navigate("Login")
+            this.state.loggedIn ? navigate("Home") : navigate("Login")
         })
     }
 
