@@ -1,6 +1,6 @@
 // React
 import React, { Component } from "react"
-import { StyleSheet, View, Text, Button, Platform, Image} from "react-native"
+import { StyleSheet, View, Text, Button, AsyncStorage, Image} from "react-native"
 
 import { RaisedTextButton } from "react-native-material-buttons"
 
@@ -51,7 +51,11 @@ class HomeScreen extends Component {
     constructor(props) {
         super(props)
 
-       this.listener = new BeaconListener()
+        AsyncStorage.getItem("token").then((result) => {
+            this.listener = new BeaconListener(result)
+        }).catch(() => {
+            this.navigation.replace("Login")
+        })
     }
 
     render() {
