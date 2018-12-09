@@ -2,34 +2,30 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 
+// Custom elements
+import BetterButton from "./res/BetterButton"
+
 // Beacons
 import BeaconListener from '../BeaconListener'
 
 const balanceStyle = StyleSheet.create({
     Navigator:{
-        position:"absolute",
-    },
-    text: {
-        fontSize: 50,
+        flex:0
     },
     wrapper: {
         marginTop: 50,
+        display:"flex",
         padding: 15,
-        backgroundColor: "#3498db",
+        height:100,
         alignSelf: "center",
-        borderRadius: 40
-    }
+        justifyContent:"center",
+        backgroundColor: "#353B38",
+        borderRadius: 100
+    }, text: {
+        fontSize: 30,
+        color:"white",
+    },
 });
-
-class AddFunds extends Component {
-    render() {
-        return (
-            <View>
-                <Text></Text>
-            </View>
-        )
-    }
-}
 
 class BalanceSheet extends Component {
     render() {
@@ -57,14 +53,12 @@ class HomeScreen extends Component {
         const { navigate } = this.props.navigation;
 
         return (
-            <View>
-                <BalanceSheet balance="9000145"/>
-                <View style={ balanceStyle.Navigator }>
-                    <Button title="Go to saved routes" onPress={() => navigate('Profile', {name:"jen"})}></Button>
-                    <Button title="Goto " onPress={() => navigate('Profile', {name:"jen"})}></Button>
+            <View style={{flex:1}}>
+                <View style={{flex:1}}>
+                    <BalanceSheet balance="9000145"/>
                 </View>
-                <View style={{ flex: 1 }}>
-
+                <View style={ balanceStyle.Navigator}>
+                    <BetterButton title="Go to saved routes" onPress={() => navigate('Profile', {name:"jen"})}></BetterButton>
                 </View>
             </View>
         )
