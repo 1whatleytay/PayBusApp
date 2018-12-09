@@ -47,7 +47,7 @@ class HomeScreen extends Component {
     constructor(props) {
         super(props)
 
-        // this.listener = new BeaconListener()
+        this.listener = new BeaconListener()
     }
 
     render() {
