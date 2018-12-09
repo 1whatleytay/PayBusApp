@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, AsyncStorage, Button } from 'react-native'
 
 // import { TextField } from 'react-native-material-textfield'
 
-// import axios from 'axios'
+import axios from 'axios'
 
 const loginStyle = StyleSheet.create({
     header: {

@@ -1,6 +1,8 @@
 // Beacons Manager
-import Beacons from 'react-native-beacons-manager';
-import { DeviceEventEmitter } from 'react-native';
+import Beacons from 'react-native-beacons-manager'
+import { DeviceEventEmitter } from 'react-native'
+
+import axios from 'axios'
 
 const regions = [
     {
@@ -24,10 +26,11 @@ export default class BeaconListener {
         Beacons.startUpdatingLocation()
 
         this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
-            console.log('Detected bus: ' + data.region.uuid)
-            if (data.beacons.length > 0 && data.beacons[0].proximity === 'immediate') {
+            console.log('Detected bus: ' + data.region.uuid + " proximity: " + data.beacons[0].proximity)
+            if (data.beacons[0] && data.beacons[0].proximity === 'immediate') {
                 const uuid = data.beacons[0].uuid
                 const token = async () => await AsyncStorage.getItem('token')
+                console.log("UUID: " + uuid)
                 axios.post('https://api.alliboard.com/nearby/', { uuid }, {
                     headers: { authorization: 'Bearer ' + token() }
                 }).catch(err => alert(err))
