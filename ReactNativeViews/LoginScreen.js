@@ -24,7 +24,7 @@ export default class LoginScreen extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { username: "", password: "" }
+        this.state = { username: "test", password: "test" }
     }
 
     render() {
@@ -45,7 +45,7 @@ export default class LoginScreen extends Component {
         axios.post('https://api.alliboard.com/oauth/token', {
             grant_type: 'password',
             client_id: 1,
-            client_secret: 'gmJDSvVRjideHVIFupRiOceTFgZuyW3U0Fi5vbRj',
+            client_secret: 'lApEFJFD67ye3mxgCRKX486H9QFg0IjKbLSreE7O',
             username,
             password,
             scope: ''
