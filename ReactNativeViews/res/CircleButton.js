@@ -1,5 +1,5 @@
 import React from "react";
-import {TouchableOpacity, StyleSheet, Text} from "react-native"
+import {TouchableOpacity, StyleSheet, Text, Image} from "react-native"
 let diameter = 100;
 const styles = StyleSheet.create({
   button:{
@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#222",
     borderRadius: 100,
     borderColor:"red",
-    borderWidth:1
+    borderWidth:1,
+    overflow: "hidden"
   },
   buttonText:{
     color: "white",
@@ -27,7 +28,7 @@ export default class CircleButton extends React.Component{
   render(){
     return (<TouchableOpacity
       style={styles.button}>
-      <Text style={styles.buttonText}>{this.props.title}</Text>
+      <Image width={diameter} height={diameter} resizeMode="contain" source={require("../../Images/avatar.jpg")}></Image>
     </TouchableOpacity>);
   }
 }

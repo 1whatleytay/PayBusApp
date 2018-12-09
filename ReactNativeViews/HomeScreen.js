@@ -1,6 +1,6 @@
 // React
 import React, { Component } from "react"
-import { StyleSheet, View, Text, Button, Platform } from "react-native"
+import { StyleSheet, View, Text, Button, Platform, Image} from "react-native"
 
 import { RaisedTextButton } from "react-native-material-buttons"
 
@@ -59,11 +59,12 @@ class HomeScreen extends Component {
                 <View style={{flexDirection:"row"}}>
                     <PersonalData name="Taylor Whatley" balance="0"></PersonalData>
                 </View>
-                <View style={{flex:2}}>
-                    <BalanceSheet balance="9000145"/>
+
+                <View style={{flex:1}}>
+
                 </View>
                 <View style={ balanceStyle.Navigator}>
-                    <RaisedTextButton title="Go to saved routes" color="#2980b9"
+                    <RaisedTextButton style={{height: 100, backgroundColor:"#222", borderRadius:0}} title="Go to saved routes" titleColor="rgb(255,255,255)"
                         onPress={() => navigate('Profile', {name:"jen"})}></RaisedTextButton>
                 </View>
             </View>
