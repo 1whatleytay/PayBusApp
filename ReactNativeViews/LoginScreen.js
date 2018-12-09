@@ -12,7 +12,7 @@ const loginStyle = StyleSheet.create({
         marginTop: 50
     },
     pushIn: {
-        margin: 10
+        margin: 20
     }
 })
 

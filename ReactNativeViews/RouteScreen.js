@@ -1,13 +1,5 @@
-import React, {
-    Component
-} from "react";
-import {
-    StyleSheet,
-    ScrollView,
-    View,
-    Text
-}
-from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, ScrollView, View, Text } from "react-native";
 const RouteOptionStyle = StyleSheet.create({
     view: {
         backgroundColor: "red",
