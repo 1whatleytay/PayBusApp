@@ -23,7 +23,8 @@ export default class LoginScreen extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { username: "test", password: "test" }
+
+        this.state = { username: "", password: "" }
     }
 
     render() {
@@ -48,17 +49,11 @@ export default class LoginScreen extends Component {
             username,
             password,
             scope: ''
-        }).then(response => {
-
-            AsyncStorage.setItem('token', response.data.access_token).then(
-                () => {
-                    this.props.navigation.navigate('Home', {token: response.data.access_token || 'foooo'})
-                }).catch(e => {
-
-                    console.error("erroring");
-                })
+        }).then((response) => {
+            AsyncStorage.setItem('token', response.data.access_token)
+            this.props.navigation.navigate('Home', {token: response.data.access_token})
         }).catch(() => {
-            alert('Failed to login! Please try again...')
+            alert('Could not login! Please try again...')
         })
     }
 }

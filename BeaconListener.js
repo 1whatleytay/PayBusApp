@@ -12,7 +12,9 @@ const regions = [
 ];
 
 export default class BeaconListener {
-    constructor() {
+    constructor(token) {
+        this.token = token
+
         console.log('Creating BeaconListener...')
 
         Beacons.requestAlwaysAuthorization()
@@ -26,13 +28,17 @@ export default class BeaconListener {
         Beacons.startUpdatingLocation()
 
         this.listener = DeviceEventEmitter.addListener('beaconsDidRange', data => {
-            console.log('Detected bus: ' + data.region.uuid)
-            if (data.beacons[0] !== undefined && data.beacons[0].proximity === 'immediate') {
+            if (data.beacons[0] === undefined) {
+                console.log('Detected bus: ' + data.region.uuid + " no region")
+                return
+            }
+            console.log('Detected bus: ' + data.region.uuid + " range: " + data.beacons[0].proximity + " access: " + this.token)
+
+            if (data.beacons[0].proximity === 'immediate' && this.token) {
                 const uuid = data.beacons[0].uuid
-                const token = async () => await AsyncStorage.getItem('token')
-                console.log("UUID: " + uuid)
+                console.log("Token: " + JSON.stringify(this.token))
                 axios.post('https://api.alliboard.com/nearby/', { uuid }, {
-                    headers: { authorization: 'Bearer ' + token() }
+                    headers: { authorization: 'Bearer ' + this.token }
                 }).catch(err => { console.log(err) })
             }
         })
