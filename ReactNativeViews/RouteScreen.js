@@ -25,20 +25,22 @@ function renderText(length){
 }
 
 class RouteListItem extends Component {
-    onPress(id) {
-      navigate.navigate("NewRoute", {routeId: id});
+    onPress(obj) {
+      navigate.navigate("NewRoute", {obj});
     }
 
     constructor(_props) {
-        super(_props)
-
-        this.id = _props.routeId;
+        super(_props);
+        alert(JSON.stringify(_props, ""," "))
+        // this.id = _props.routeId;
         this.obj = _props.obj;
+        alert(JSON.stringify(this.obj, ""," "))
     }
 
     render() {
+        console.warn(this.obj.name);
         return (
-            <TextButton title={this.props.obj.name} style={routeStyle.breifRoute} onPress={() => this.onPress(this.id)}>{this.props.obj.name}</TextButton>
+            <TextButton title={this.obj.name} style={routeStyle.breifRoute} onPress={() => this.onPress(this.obj)}>{this.obj.name}</TextButton>
         )
     }
 }
