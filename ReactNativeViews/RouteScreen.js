@@ -36,8 +36,9 @@ class RouteListItem extends Component {
     }
 
     render() {
+        console.warn(this.obj.name);
         return (
-            <TextButton title={this.props.obj.name} style={routeStyle.breifRoute} onPress={() => this.onPress()}>{this.props.obj.name}</TextButton>
+            <TextButton title={this.obj.name} style={routeStyle.breifRoute} onPress={() => this.onPress(this.obj)}>{this.obj.name}</TextButton>
         )
     }
 }
