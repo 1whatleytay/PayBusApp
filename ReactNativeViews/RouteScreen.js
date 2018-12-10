@@ -26,19 +26,18 @@ function renderText(length){
 
 class RouteListItem extends Component {
     onPress(id) {
-      navigate.navigate("NewRoute", {routeId: id});
+      navigate.navigate("NewRoute", this.obj);
     }
 
     constructor(_props) {
         super(_props)
 
-        this.id = _props.routeId;
-        this.obj = _props.obj;
+        this.obj = _props.obj
     }
 
     render() {
         return (
-            <TextButton title={this.props.obj.name} style={routeStyle.breifRoute} onPress={() => this.onPress(this.id)}>{this.props.obj.name}</TextButton>
+            <TextButton title={this.props.obj.name} style={routeStyle.breifRoute} onPress={() => this.onPress()}>{this.props.obj.name}</TextButton>
         )
     }
 }
