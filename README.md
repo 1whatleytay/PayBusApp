@@ -1,5 +1,8 @@
 # PayBusApp
 
+Credit to [dmfj](https://github.com/dmfj) and [viktorKorolyuk](https://github.com/viktorKorolyuk).
+I guess the repo is just hosted here because, they were awesome teammates!
+
 Made for [Urban Hacks 2018](https://uh.hackthehammer.com/), timestamped early grade 10.
 The idea was as you walked onto the bus your phone would automatically detect that and pay the requested amount. 
 It was actually a scrapped idea we had for our project for [TU20 Cup 2018](https://techundertwenty.com/tu20-cup-2018/) on late grade 9.
